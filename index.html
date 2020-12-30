@@ -8,14 +8,18 @@
     <title>JavaScript Quiz</title>
 </head>
 <body>
-    <div id="contentWrap">
-        <div id="timer"></div>
-        <div id="questions">
-            <h1>JavaScript Quiz</h1>
-            <p>Answer questions within the time limit. Incorrect answers will decrease your time left by 10 seconds each.</p>
-            <ul id="multChoice"></ul>
-            <button id="startQuiz"></button>
+    <div class="card text-center w-75" style="margin:10% auto;">
+        <div id="timer" class="card-header"></div>
+        <div id="questions" class="card-body">
+            <h1 class="card-title">JavaScript Quiz</h1>
+            <p class="card-text">Answer questions within the time limit. Incorrect answers will decrease your time left by 10 seconds each.</p>
+            <ul id="multChoice" class="card-text"></ul>
+            <button id="startQuiz" class="btn btn-info btn-lg">Start Quiz</button>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-outline-info btn-sm">High Scores</a>
         </div>
     </div>
+    <script src ="script.js"></script>
 </body>
 </html>
