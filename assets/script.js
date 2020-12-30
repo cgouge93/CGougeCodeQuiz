@@ -69,8 +69,8 @@ startQuiz.addEventListener("click", function() {
 // renders questions and options on index.html
 function render(questionIndex) {
     //clears existing data
-    questionsDiv.innerHTML = "";
-    ulCreate.innerHTML = "";
+    questionsDiv.innerHTML = " ";
+    ulCreate.innerHTML = " ";
     //for loop to loop through question array
     for (var i = 0; i < questions.length; i++) {
         // appends title from array
@@ -102,7 +102,19 @@ function compare(event){
             answerFeedback.textContent = "Correct! The answer is: " + questions[questionIndex].answer;
         } else {
             //deducting 10 seconds for incorrect answer penalty
-            secondsLeft = secondsLeft - penalty
+            secondsLeft = secondsLeft - penalty;
+            answerFeedback.textContent = "Incorrect! The answer is: " + questions[questionIndex].answer;
         }
     }
+    //advancing to next question in array
+    questionIndex++;
+
+    if (questionIndex >= questions.length){
+        //allDone will append last page with user stats
+        allDone();
+        answerFeedback.textContent = "End of quiz!" + " " + "You got " + score + "/" + questions.length + " correct!";
+    } else {
+        render(questionIndex)
+    }
+    questionsDiv.appendChild(answerFeedback)
 }
