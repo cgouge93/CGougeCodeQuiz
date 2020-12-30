@@ -62,4 +62,47 @@ startQuiz.addEventListener("click", function() {
         },  1000);
     }
     render(questionIndex);
+    //clears the high score button from the card footer when quiz begins
+    document.querySelector(".card-footer").innerHTML = "";
 });
+
+// renders questions and options on index.html
+function render(questionIndex) {
+    //clears existing data
+    questionsDiv.innerHTML = "";
+    ulCreate.innerHTML = "";
+    //for loop to loop through question array
+    for (var i = 0; i < questions.length; i++) {
+        // appends title from array
+        var userQuestion = questions[questionIndex].title;
+        var userChoices = questions[questionIndex].choices;
+        questionsDiv.textContent = userQuestion;
+    }
+    // for each to append question choices
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement("button");
+        listItem.textContent = newItem;
+        listItem.setAttribute("class", "btn btn-info btn-sm");
+        listItem.setAttribute("id", "choices")
+        questionsDiv.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        //event listener for selected item runs compare function to check answer
+        listItem.addEventListener("click", (compare));
+    })
+}
+// compare function to check user-selected answer
+function compare(event){
+    var element = event.target;
+
+    if (element.matches("button")) {
+        var answerFeedback = document.querySelector(".card-footer");
+        //condition if answer is correct
+        if (element.textContent == questions[questionIndex].answer){
+            score++;
+            answerFeedback.textContent = "Correct! The answer is: " + questions[questionIndex].answer;
+        } else {
+            //deducting 10 seconds for incorrect answer penalty
+            secondsLeft = secondsLeft - penalty
+        }
+    }
+}
