@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
-    <title>JavaScript Quiz</title>
+    <title>Code Quiz High Scores</title>
 </head>
 <body>
-    <div class="card text-center w-50" style="margin:10% auto;" id="contentWrap">
+    <div class="card text-center w-75" style="margin:10% auto;" id="contentWrap">
         <div id="timer" class="card-header"></div>
         <div id="questions" class="card-body">
-            <h1 class="card-title">JavaScript Quiz</h1>
-            <p class="card-text">Answer questions within the time limit. Incorrect answers will decrease your time left by 10 seconds each.</p>
-            <button id="startQuiz" class="btn btn-info btn-lg">Start Quiz</button>
+            <h1 class="card-title">High Scores</h1>
+            <ul id="highScore"></ul>
+            <button id="goBack" class="btn btn-info btn-lg">Go Back</button>
+            <button id="clear" class="btn btn-danger btn-lg" value="reset">Clear</button>
         </div>
         <div class="card-footer">
             <p id="answer-feedback"></p>
-            <a class="btn btn-outline-info" href="./highscores.html" role="button" id="highScoreBtn">High Scores</a>
         </div>
     </div>
-    <script src ="assets/script.js"></script>
+    <script src ="assets/highscores.js"></script>
 </body>
 </html>
