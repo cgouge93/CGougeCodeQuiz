@@ -62,8 +62,6 @@ startQuiz.addEventListener("click", function() {
         },  1000);
     }
     render(questionIndex);
-    //clears the high score button from the card footer when quiz begins
-    document.querySelector(".card-footer").innerHTML = "";
 });
 
 // renders questions and options on index.html
@@ -95,20 +93,21 @@ function compare(event){
     var element = event.target;
 
     if (element.matches("button")) {
-        var answerFeedback = document.querySelector(".card-footer");
+        var answerFeedback = document.getElementById("answer-feedback");
         //condition if answer is correct
         if (element.textContent == questions[questionIndex].answer){
             score++;
             answerFeedback.textContent = "Correct! The answer is: " + questions[questionIndex].answer;
+            answerFeedback.setAttribute("class", "alert alert-success");
         } else {
             //deducting 10 seconds for incorrect answer penalty
             secondsLeft = secondsLeft - penalty;
             answerFeedback.textContent = "Incorrect! The answer is: " + questions[questionIndex].answer;
+            answerFeedback.setAttribute("class", "alert alert-danger");
         }
     }
     //advancing to next question in array
     questionIndex++;
-
     if (questionIndex >= questions.length){
         //allDone will append last page with user stats
         allDone();
