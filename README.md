@@ -13,5 +13,5 @@ This is a JavaScript Quiz created using HTML, Bootstrap, CSS, and JavaScript. Th
 * ![high scores](/assets/images/highscores.JPG)
 
 ## GIF of Deployed Project in Action
-![gif of working project](/assetes/images/working.GIF)
+![gif of working project](/assets/images/working.gif)
 
