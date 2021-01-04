@@ -12,7 +12,7 @@ var questions = [
     },
     {
         title: "Arrays in JavaScript can be used to store:",
-        choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+        choices: ["numbers & strings", "other arrays", "booleans", "all of the above"],
         answer: "all of the above"
     },
     {
@@ -98,6 +98,7 @@ function compare(event){
         if (element.textContent == questions[questionIndex].answer){
             score++;
             answerFeedback.textContent = "Correct! The answer is: " + questions[questionIndex].answer;
+            // uses bootstrap alert classes to create visual feedback for incorrect/correct answers
             answerFeedback.setAttribute("class", "alert alert-success");
         } else {
             //deducting 10 seconds for incorrect answer penalty
@@ -119,9 +120,9 @@ function compare(event){
     questionsDiv.appendChild(answerFeedback)
 }
 function allDone() {
+    // clearing html on page and creating h1 and p elements to dispaly final score
     questionsDiv.innerHTML = "";
     currentTime.innerHTML = "";
-
     var createH1 = document.createElement("h1");
     createH1.setAttribute("class", "card-title");
     createH1.textContent = "All done!";
